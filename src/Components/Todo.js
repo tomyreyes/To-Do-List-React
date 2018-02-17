@@ -17,11 +17,25 @@ class Todo extends Component {
     }
 
     render() {
+        const styles = {
+            spacing: {
+                marginLeft: 20 
+            },
+            completedTask: {
+                textDecoration: 'line-through',
+                color: '#D1D1D1'
+            },
+            incompleteTask:{
+                textDecoration: 'none' 
+
+            }
+        }
+        let strikeout = this.props.showTask.isChecked ? styles.completedTask : styles.incompleteTask
         let { task } = this.props.showTask
         return (
             <div>
-                <span>{task}</span>
                 <input type="checkbox" checked={this.props.showTask.isChecked} onChange={this.checked} />
+                    <span style={{...strikeout , ...styles.spacing}}>{task}</span>
             </div>
         )
     }

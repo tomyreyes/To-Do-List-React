@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import {Button, Input} from 'reactstrap'
 
 class NewTask extends Component {
     constructor() {
@@ -26,10 +27,13 @@ class NewTask extends Component {
     }
 
     render() {
-        return <div>
-            <input type="text" onChange={this.updateTask} value={this.state.task} placeholder="Enter new task" />
-            <button onClick={this.addTask}>Add</button>
-        </div>
+        return <span>
+            
+            <Input type="text" onChange={this.updateTask} value={this.state.task} placeholder="Enter new task" />
+            
+            <Button color="success"onClick={this.addTask}>Add</Button>
+            </span>
+        
     }
 }
 export default NewTask
