@@ -11,6 +11,10 @@ class NewTask extends Component {
     }
 
     addTask = (task) => {
+        if (task === ''){
+            alert('Enter something')
+            return
+        }
         let inputTask = {
             task: this.state.task,
             isChecked: false
@@ -29,9 +33,10 @@ class NewTask extends Component {
     render() {
         return <span>
             
-            <Input type="text" onChange={this.updateTask} value={this.state.task} placeholder="Enter new task" />
+            <Input type="text" onChange={this.updateTask} value={this.state.task} 
+                onKeyDown={(e) => { if (e.keyCode === 13) this.addTask(this.state.task) }} placeholder="Enter new task" />
             
-            <Button color="success"onClick={this.addTask}>Add</Button>
+            {/* <Button color="success"onClick={this.addTask}>Add</Button> */}
             </span>
         
     }
